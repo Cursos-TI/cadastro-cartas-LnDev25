@@ -1,12 +1,8 @@
-
-// Desafio Super Trunfo - Países
-// Tema 1 - Cadastro das cartas
-// Objetivo: No nível novato você deve criar as cartas representando as cidades utilizando scanf para entrada de dados e printf para exibir as informações.
-
 #include <stdio.h>
 
-
 int main(){
+
+// INICIO DO PROGRAMA - NIVEL NOVATO//
 
 // Variaveis carta 1
 
@@ -30,11 +26,9 @@ float pib_valor2 ;
 char pib_unidade2 [15] ;
 int pontos_turisticos2 ;
  
-
 //-------------------------------------------------------------------------------------------------------------//
 
 
-// --- CADASTRANDO A CARTA ---
 // Entrada de dados das cartas
 
 
@@ -46,9 +40,10 @@ int pontos_turisticos2 ;
 
 //-------------------------------------------------------------------------------------------------------------//
 
+printf("\n--- DIGITE OS DADOS DA CARTA 1 ---\n");
 
 // Estado
-printf ( "Digite a primeira letra do seu estado (A-H): \n" );
+printf ( "Digite a primeira letra do seu estado (A-Z): \n" );
 scanf  ( " %c", &letra_estado );
 
 while(getchar() != '\n');
@@ -79,7 +74,7 @@ while(getchar() != '\n');
 
 // PIB
 printf ( "Digite o PIB e a unidade (ex: 3.44 Bilhoes):  \n" );
-scanf  ( " %f %s", &pib_valor, pib_unidade );
+scanf  ( " %f %s", &pib_valor, &pib_unidade );
 
 while(getchar() != '\n');
 
@@ -102,7 +97,7 @@ printf("\n--- AGORA DIGITE OS DADOS DA CARTA 2 ---\n");
 
 
 //Estado
-printf ( "Digite a primeira letra do seu estado (A-H): \n" );
+printf ( "Digite a primeira letra do seu estado (A-Z): \n" );
 scanf  ( " %c", &letra_estado2 );
 
 while(getchar() != '\n');
@@ -133,7 +128,7 @@ while(getchar() != '\n');
 
 // PIB
 printf ( "Digite o PIB e a unidade (ex: 3.44 Bilhoes):  \n" );
-scanf  ( " %f %s", &pib_valor2, pib_unidade2 );
+scanf  ( " %f %s", &pib_valor2, &pib_unidade2 );
 
 while(getchar() != '\n');
 
@@ -144,8 +139,28 @@ scanf  ( " %d", &pontos_turisticos2 );
 while(getchar() != '\n');
 
 
-//-------------------------------------------------------------------------------------------------------------//
 
+
+
+// INICIO PROGRAMA NIVEL AVENTUREIRO 
+
+// Densidade Populacional calculo 
+
+float densidade_populacional1 = populacao / area ;
+float densidade_populacional2 = populacao2 / area2 ;
+
+// PIB per Capita calculo 
+
+float pib_capita = (pib_valor * 1000000000.0) / populacao;
+float pib_capita2 = (pib_valor2 * 1000000000.0) / populacao2;
+
+// FIM DO PROGRAMA NIVEL AVENTUREIRO 
+
+
+
+
+
+//-------------------------------------------------------------------------------------------------------------//
 
 
 // Exibindo as duas cartas - Saida de dados
@@ -166,17 +181,19 @@ printf ( "Codigo da carta: %s \n", codigo_da_carta );
 
 printf ( "Nome da cidade: %s \n", nome_da_cidade );
 
-printf ( "Populacao %d \n", populacao );
+printf ( "Populacao: %d \n", populacao );
 
-printf ( "Area %.2f \n", area );
+printf ( "Area: %.2f km² \n", area );
 
 printf("PIB: %.2f %s de reais\n", pib_valor, pib_unidade);
 
-printf ( "Pontos turisticos %d \n", pontos_turisticos );
+printf ( "Pontos turisticos: %d \n", pontos_turisticos );
 
+printf ( "Densidade Populacional: %.2f hab/km²\n", densidade_populacional1  );
+
+printf ( "PIB per Capita: %.2f reais\n", pib_capita );
 
 //-------------------------------------------------------------------------------------------------------------//
-
 
 printf("\nCarta 2:\n");
 
@@ -189,16 +206,19 @@ printf ( "Codigo da carta: %s \n", codigo_da_carta2 );
 
 printf ( "Nome da cidade: %s \n", nome_da_cidade2 );
 
-printf ( "Populacao %d \n", populacao2 );
+printf ( "Populacao: %d \n", populacao2 );
 
-printf ( "Area %.2f \n", area2 );
+printf ( "Area: %.2f km² \n", area2 );
 
 printf("PIB: %.2f %s de reais\n", pib_valor2, pib_unidade2);
 
-printf ( "Pontos turisticos %d \n", pontos_turisticos2 );
+printf ( "Pontos turisticos: %d \n", pontos_turisticos2 );
 
+printf ( "Densidade Populacional: %.2f hab/km²\n", densidade_populacional2 );
 
-// Fim do Programa//
+printf ( "PIB per Capita: %.2f reais\n", pib_capita2 );
+
+// Fim do Programa NIVEL NOVATO//
 
 //-------------------------------------------------------------------------------------------------------------//
 
