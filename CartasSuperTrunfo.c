@@ -9,7 +9,7 @@ int main(){
 char letra_estado ;
 char codigo_da_carta [10] ;
 char nome_da_cidade [50] ;
-int populacao ;
+unsigned long int populacao ;
 float area ;
 float pib_valor;
 char pib_unidade [15];
@@ -20,7 +20,7 @@ int pontos_turisticos ;
 char letra_estado2 ;
 char codigo_da_carta2 [10] ;
 char nome_da_cidade2 [50] ;
-int populacao2 ;
+unsigned long int populacao2 ;
 float area2 ;
 float pib_valor2 ;
 char pib_unidade2 [15] ;
@@ -28,15 +28,11 @@ int pontos_turisticos2 ;
  
 //-------------------------------------------------------------------------------------------------------------//
 
-
 // Entrada de dados das cartas
-
 
 //-------------------------------------------------------------------------------------------------------------//
 
-
 // Carta 1
-
 
 //-------------------------------------------------------------------------------------------------------------//
 
@@ -62,7 +58,7 @@ while(getchar() != '\n');
 
 // Populacao 
 printf ( "Qual a quantidade de populacao da sua cidade? \n" );
-scanf  ( " %d", &populacao );
+scanf  ( " %lu", &populacao );
 
 while(getchar() != '\n');
 
@@ -87,9 +83,7 @@ while(getchar() != '\n');
 
 //-------------------------------------------------------------------------------------------------------------//
 
-
 // Carta 2
-
 
 //-------------------------------------------------------------------------------------------------------------//
 
@@ -116,7 +110,7 @@ while(getchar() != '\n');
 
 // Populacao 
 printf ( "Qual a quantidade de populacao da sua cidade? \n" );
-scanf  ( " %d", &populacao2 );
+scanf  ( " %lu", &populacao2 );
 
 while(getchar() != '\n');
 
@@ -142,7 +136,7 @@ while(getchar() != '\n');
 
 
 
-// INICIO PROGRAMA NIVEL AVENTUREIRO 
+// INICIO PROGRAMA NIVEL AVENTUREIRO
 
 // Densidade Populacional calculo 
 
@@ -160,11 +154,30 @@ float pib_capita2 = (pib_valor2 * 1000000000.0) / populacao2;
 
 
 
+// INICIO DO PROGRAMA MESTRE
+
+// Calculo do Super Poder de cada carta
+
+float superPoder1 = populacao + area + pib_valor + pontos_turisticos + pib_capita +  1.0 / densidade_populacional1;
+float superPoder2 = populacao2 + area2 + pib_valor2 + pontos_turisticos2 + pib_capita2 + 1.0 / densidade_populacional2;
+
+// Comparação de cartas dados
+
+int resultado_populacao = populacao > populacao2;
+int resultado_area = area > area2;
+int resultado_pibV = pib_valor > pib_valor2;
+int resultado_pontosT = pontos_turisticos > pontos_turisticos2;
+int resultado_pibC = pib_capita > pib_capita2;
+int resultado_densidade = densidade_populacional1 < densidade_populacional2;
+
+// Comparação de cartas super poder
+
+int resultadoSuperPoder = superPoder1 > superPoder2;
+
+
 //-------------------------------------------------------------------------------------------------------------//
 
-
 // Exibindo as duas cartas - Saida de dados
-
 
 //-------------------------------------------------------------------------------------------------------------//
 
@@ -181,7 +194,7 @@ printf ( "Codigo da carta: %s \n", codigo_da_carta );
 
 printf ( "Nome da cidade: %s \n", nome_da_cidade );
 
-printf ( "Populacao: %d \n", populacao );
+printf ( "Populacao: %lu \n", populacao );
 
 printf ( "Area: %.2f km² \n", area );
 
@@ -206,7 +219,7 @@ printf ( "Codigo da carta: %s \n", codigo_da_carta2 );
 
 printf ( "Nome da cidade: %s \n", nome_da_cidade2 );
 
-printf ( "Populacao: %d \n", populacao2 );
+printf ( "Populacao: %lu \n", populacao2 );
 
 printf ( "Area: %.2f km² \n", area2 );
 
@@ -219,6 +232,35 @@ printf ( "Densidade Populacional: %.2f hab/km²\n", densidade_populacional2 );
 printf ( "PIB per Capita: %.2f reais\n", pib_capita2 );
 
 // Fim do Programa NIVEL NOVATO//
+
+
+// CONTINUACAO NIVEL MESTRE
+
+
+// Exibicao a comparação e além disso o resultado final com a carta vencedora
+
+printf("\n--- COMPARACAO DE CARTAS ---\n");
+
+printf("----- ATENÇÂO -----\n");
+
+printf("Resultado 1 significa que Carta 1 ganhou\n");
+printf("Resultado 0 significa que Carta 2 ganhou\n\n");
+
+printf("População: (%d)\n", resultado_populacao);
+
+printf("Área: (%d)\n", resultado_area);
+
+printf("PIB: (%d)\n", resultado_pibV);
+
+printf("Pontos Turísticos: (%d)\n", resultado_pontosT);
+
+printf("Densidade Populacional: (%d)\n", resultado_densidade);
+
+printf("PIB per Capita: (%d)\n", resultado_pibC);
+
+printf("Carta vencedora: (%d)\n", resultadoSuperPoder);
+
+// Fim do Programa NIVEL MESTRE//
 
 //-------------------------------------------------------------------------------------------------------------//
 
